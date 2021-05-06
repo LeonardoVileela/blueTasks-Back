@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
+
 
 @Entity
 public class AppUser {
@@ -12,8 +14,13 @@ public class AppUser {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty(message = "the username is mandatory")
 	private String username;
+	
+	@NotEmpty(message = "the password is mandatory")
 	private String password;
+	
+	@NotEmpty(message = "the display Name is mandatory")
 	private String displayName;
 
 	public AppUser() {

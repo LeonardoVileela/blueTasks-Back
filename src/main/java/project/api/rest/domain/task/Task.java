@@ -8,6 +8,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.FutureOrPresent;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import project.api.rest.domain.user.AppUser;
 
@@ -18,8 +23,12 @@ public class Task {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@NotEmpty(message = "the description is mandatory")
+	@Length(min = 3, max = 40, message = "the description size is invalid")
 	private String description;
 
+	@NotNull(message = "the Date is mandatory")
+	@FutureOrPresent
 	private LocalDate whenToDo;
 
 	private Boolean done = false;
