@@ -3,6 +3,7 @@ package project.api.rest.domain.task;
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -17,6 +18,7 @@ import org.hibernate.validator.constraints.Length;
 import project.api.rest.domain.user.AppUser;
 
 @Entity
+@EntityListeners(TaskListener.class)
 public class Task {
 
 	@Id

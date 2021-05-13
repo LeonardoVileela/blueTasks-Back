@@ -14,6 +14,7 @@ public class BlueTasksBackApplication implements RepositoryRestConfigurer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlueTasksBackApplication.class, args);
+	
 	}
 
 	@Bean
